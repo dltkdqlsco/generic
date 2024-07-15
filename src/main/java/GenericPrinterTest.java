@@ -4,12 +4,15 @@ public class GenericPrinterTest {
         Plastic plastic = new Plastic();
 
         GenericPrinter<Powder> powderPrinter = new GenericPrinter<>();
-        GenericPrinter<Plastic> plasticPrinter = new GenericPrinter<>();
-
         powderPrinter.setMeterial(powder);
-        System.out.println(powderPrinter.toString());
+        Powder p = powderPrinter.getMeterial(); // 형변환 하지 않음
+        System.out.println(powderPrinter);
 
+        GenericPrinter<Plastic> plasticPrinter = new GenericPrinter<>();
         plasticPrinter.setMeterial(plastic);
-        System.out.println(plasticPrinter.toString());
+        Plastic pl = plasticPrinter.getMeterial();  // 형변환 하지 않음
+        System.out.println(plasticPrinter);
+
+        // GenericPrinter<Water> waterPrinter = new GenericPrinter<>(); // Water는 Material를 상속 받지 않아서 쓸 수가 없다
     }
 }
